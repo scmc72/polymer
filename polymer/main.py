@@ -512,7 +512,7 @@ def run_atm_corr(level1, level2, **kwargs):
             else:
                 nproc = params.multiprocessing
             pool = Pool(nproc)
-            block_iter = pool.imap_unordered(process_block,
+            block_iter = pool.map(process_block,
                     blockiterator(l1, params, True))
         else:
             block_iter = imap(process_block,
